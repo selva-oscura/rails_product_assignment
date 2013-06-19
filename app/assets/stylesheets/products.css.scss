@@ -1,3 +1,23 @@
 // Place all the styles related to the Products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+*{
+	color: #0441f9;
+}
+
+ button .btn{
+	color: white;
+}
+
+table{
+	border:1px solid silver;
+}
+
+a:link, a:visited, a:hover, a:focus{
+	text-decoration:none;
+	color:white;
+} 
+
+

@@ -15,6 +15,9 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
   gem 'rails-footnotes', '>=3.7.9', :group => :development
   gem 'hirb'
+  gem 'simple_form'
+  gem 'bootstrap-sass', '~>2.3.1.0'
+
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
