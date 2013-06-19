@@ -20,18 +20,11 @@
 				<td> <%= product.pricing %> </td>
 				<td> <a href='/products/<%= product.id%>'> <button type='button' class='btn btn-info'>View</button></a></td>
 				<td> <a href='/products/<%= product.id%>/edit'> <button type='button' class='btn btn-warning'>Edit</button></a></td>
-<!--				<td>
-					<form action='products/<%= product.id %>/edit' method ='post'>
-						<input type='submit' value='edit'>
-					</form>
-				</td>
--->
 				<td>
 					<form action='/products/<%= product.id %>' method ='post'>
 						<input name='authenticity_token' value='<%=form_authenticity_token %>' type='hidden'>
 						<input type='hidden' name='_method' value='delete'>
 						<input type='submit' value='delete' class='btn btn-danger'>
-<!--						<input type='submit' value='delete' class='btn btn-danger'>   -->
 					</form>
 				</td>
 			</tr>
@@ -39,6 +32,3 @@
 	</tbody>
 </table>
 <p><a href="/products/new"><button type='button' class='btn btn-success'>Create New Product</a></button></p>
-<!--
-<p><a href="users/new" class='btn btn-primary'>Create Product</a></p>
--->
