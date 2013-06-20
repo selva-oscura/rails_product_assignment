@@ -1,7 +1,17 @@
-<h1> Information for Product <%=@product.id %></h1>
+<html>
+	<head>
+<% content_for :title do %>
+  Product <%=@product.id %> Details
+<% end %>
+	</head>
+	<body>
+		<h1> Information for Product <%=@product.id %></h1>
 
-<p> <b>Name:</b> <%= @product.name %></p>
-<p> <b>Description:</b> <%= @product.description %></p>
-<p> <b>Price:</b> <%= @product.pricing %></p>
-<p><a href="../products/"><button type='button' class='btn btn-primary'>Return to Index of Products</button></a></p>
-<p> <a href='<%=@product.id %>/edit'><button type='button' class='btn btn-warning'>Edit Product Information</button></a></p>
+		<p> <b>Name:</b> <%= @product.name %></p>
+		<p> <b>Category: </b> <%= @product.category.name %></p>
+		<p> <b>Description:</b> <%= @product.description %></p>
+		<p> <b>Price:</b> <%= @product.pricing %></p>
+		<p><a href="../products/"><button type='button' class='btn btn-primary'>Return to Index of Products</button></a></p>
+		<p> <a href='<%=@product.id %>/edit'><button type='button' class='btn btn-warning'>Edit Product Information</button></a></p>
+	</body>
+</html>

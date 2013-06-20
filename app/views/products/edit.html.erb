@@ -1,20 +1,30 @@
-<h1>Edit Product Information</h1>
-<!-- <form action='/products/<%= @product.id %>' method='post'>
-	<label>Name:</label><br /><input type='text' name='product[name]' value='<%= @product.name %>' /><br />
-	<label>Description:</label><br /><textarea name='product[description]' style='width: 138px; height: 100px;' /><%= @product.description %></textarea><br />
-	<label>Price:</label><br /><input type='text' name='product[pricing]' value='<%= @product.pricing %>' /><br />
-	<input type='hidden' name='_method' value='put'>
-	<input type='submit' value='Update' />
-</form> -->
-<!-- <p><a href='/products/'><button type='button' class='btn btn-primary'>Return to Index</button></a></p>
-<p><a href='/products/<%=@product.id%>'><button type='button' class='btn btn-info'>Return to View Product</button></a></p>
- -->
-<%= simple_form_for(@product, :html => { :class => 'form-horizontal' }) do |f| %>
-  <%= f.input :name, :input_html => { :class => "span6" }, label: "Name", value: @product.name %>
-  <%= f.input :description, :input_html => { :class => "span6" }, label: "Description", value: @product.description %>
-  <%= f.input :pricing, :input_html => { :class => "span6" }, label: "Price", value: @product.pricing %>
-  <%= f.button :submit, :class => 'btn btn-success', label: "Submit" %>
+<html>
+	<head>
+<% content_for :title do %>
+  Edit Information for Product <%=@product.id %>
 <% end %>
-
-<p><a href='/products/'><button type='button' class='btn btn-primary'>Return to Index</button></a></p>
-<p><a href='/products/<%=@product.id%>'><button type='button' class='btn btn-info'>Return to View Product</button></a></p>
+	</head>
+	<body>
+		<h1>Edit Product Information</h1>
+		<!-- <form action='/products/<%= @product.id %>' method='post'>
+			<label>Name:</label><br /><input type='text' name='product[name]' value='<%= @product.name %>' /><br />
+			<label>Description:</label><br /><textarea name='product[description]' style='width: 138px; height: 100px;' /><%= @product.description %></textarea><br />
+			<label>Price:</label><br /><input type='text' name='product[pricing]' value='<%= @product.pricing %>' /><br />
+			<input type='hidden' name='_method' value='put'>
+			<input type='submit' value='Update' />
+		</form> -->
+		<!-- <p><a href='/products/'><button type='button' class='btn btn-primary'>Return to Index</button></a></p>
+		<p><a href='/products/<%=@product.id%>'><button type='button' class='btn btn-info'>Return to View Product</button></a></p>
+		 -->
+		<%= simple_form_for(@product, :html => { :class => 'form-horizontal' }) do |f| %>
+		  <%= f.input :name, :input_html => { :class => "span6" }, label: "Name", value: @product.name %>
+		  <%= f.input :description, :input_html => { :class => "span6" }, label: "Description", value: @product.description %>
+		  <%= f.association :category, :input_html => { :class => "span6"}, label: "Category", value: @product.category_id %>
+		  <%= f.input :pricing, :input_html => { :class => "span6" }, label: "Price", value: @product.pricing %>
+		  <%= f.button :submit, :class => 'btn btn-success', label: "Submit" %>
+		<% end %>
+		<%= flash[:message] %>
+		<p><a href='/products/'><button type='button' class='btn btn-primary'>Return to Index</button></a></p>
+		<p><a href='/products/<%=@product.id%>'><button type='button' class='btn btn-info'>Return to View Product</button></a></p>
+	</body>
+</html>

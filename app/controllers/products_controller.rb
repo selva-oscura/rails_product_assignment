@@ -23,9 +23,10 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(params[:product])
     if @product.save
-      redirect_to @product, notice: 'Product was successfully created.'
+      # redirect_to @product, notice: 'Product was successfully created.'
     else
       render action: 'new'
+      flash[:message] = "All fields must be filled to list a new product"
     end
   end
 
@@ -35,6 +36,7 @@ class ProductsController < ApplicationController
     if @product.update_attributes(params[:product])
       redirect_to @product, notice: 'Product was successfully updated.'
     else
+      flash[:message] = "All fields must be filled to successfuly udpate this product"
       render edit page
     end
   end

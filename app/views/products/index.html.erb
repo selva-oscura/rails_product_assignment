@@ -1,34 +1,45 @@
-<h1>Index of Products</h1>
-<table class='table table-striped table-hover' border='1' style='width:90%'>
-	<thead>
-		<tr>
-			<th>id</th>
-			<th>Name</th>
-			<th>Description</th>
-			<th>Price</th>
-			<th>View</th>
-			<th>Edit</th>
-			<th>Delete</th>
-		</tr>
-	</thead>
-	<tbody>
-		<% @products.each do |product| %>
-			<tr>
-				<td> <%= product.id %> </td>
-				<td> <%= product.name %> </td>
-				<td style='width:50%'> <%= product.description %> </td>
-				<td> <%= product.pricing %> </td>
-				<td> <a href='/products/<%= product.id%>'> <button type='button' class='btn btn-info'>View</button></a></td>
-				<td> <a href='/products/<%= product.id%>/edit'> <button type='button' class='btn btn-warning'>Edit</button></a></td>
-				<td>
-					<form action='/products/<%= product.id %>' method ='post'>
-						<input name='authenticity_token' value='<%=form_authenticity_token %>' type='hidden'>
-						<input type='hidden' name='_method' value='delete'>
-						<input type='submit' value='delete' class='btn btn-danger'>
-					</form>
-				</td>
-			</tr>
-		<% end %>
-	</tbody>
-</table>
-<p><a href="/products/new"><button type='button' class='btn btn-success'>Create New Product</button></a></p>
+<html>
+	<head>
+<% content_for :title do %>
+  Products Index
+<% end %>
+	</head>
+	<body>
+		<h1>Index of Products</h1>
+		<table class='table table-striped table-hover' border='1' style='width:90%'>
+			<thead>
+				<tr>
+					<th>id</th>
+					<th>Category</th>
+					<th>Name</th>
+					<th>Description</th>
+					<th>Price</th>
+					<th>View</th>
+					<th>Edit</th>
+					<th>Delete</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @products.each do |product| %>
+					<tr>
+						<td> <%= product.id %> </td>
+						<td> <%= product.category.name %> </td>
+						<td> <%= product.name %> </td>
+						<td style='width:50%'> <%= product.description %> </td>
+						<td> <%= product.pricing %> </td>
+						<td> <a href='/products/<%= product.id%>'> <button type='button' class='btn btn-info'>View</button></a></td>
+						<td> <a href='/products/<%= product.id%>/edit'> <button type='button' class='btn btn-warning'>Edit</button></a></td>
+						<td>
+							<form action='/products/<%= product.id %>' method ='post'>
+								<input name='authenticity_token' value='<%=form_authenticity_token %>' type='hidden'>
+								<input type='hidden' name='_method' value='delete'>
+								<input type='submit' value='delete' class='btn btn-danger'>
+							</form>
+						</td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+		<p><a href="/products/new"><button type='button' class='btn btn-success'>Create New Product</button></a></p>
+	</body>
+</html>
