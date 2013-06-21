@@ -15,9 +15,26 @@ table{
 	border:1px solid silver;
 }
 
-a:link, a:visited, a:hover, a:focus{
+a:link .btn, a:visited .btn, a:hover .btn, a:focus .btn{
 	text-decoration:none;
 	color:white;
 } 
 
 
+a:link, a:visited, a:hover, a:focus{
+	text-decoration:underline;
+	color:#0441f9;
+} 
+
+.btn{
+	height:36px;
+}
+
+.right{
+	width:50%;
+	float:right;
+}
+.left{
+	width:50%;
+	float:left;
+}

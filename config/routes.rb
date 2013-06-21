@@ -1,5 +1,7 @@
 ControllersIntermediateProductAssignment::Application.routes.draw do
-resources :products
+resources :products do
+  resources :comments, :only => :create
+end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

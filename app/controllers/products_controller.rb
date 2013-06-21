@@ -7,6 +7,7 @@ class ProductsController < ApplicationController
   # GET /products/1
   def show
     @product = Product.find(params[:id])
+    @product_comments = @product.comments.order("created_at DESC")
   end
 
   # GET /products/new
@@ -25,8 +26,8 @@ class ProductsController < ApplicationController
     if @product.save
       # redirect_to @product, notice: 'Product was successfully created.'
     else
-      render action: 'new'
       flash[:message] = "All fields must be filled to list a new product"
+      render action: 'new'
     end
   end
 
@@ -37,7 +38,7 @@ class ProductsController < ApplicationController
       redirect_to @product, notice: 'Product was successfully updated.'
     else
       flash[:message] = "All fields must be filled to successfuly udpate this product"
-      render edit page
+      render action: "edit"
     end
   end
 

@@ -11,7 +11,21 @@
 		<p> <b>Category: </b> <%= @product.category.name %></p>
 		<p> <b>Description:</b> <%= @product.description %></p>
 		<p> <b>Price:</b> <%= @product.pricing %></p>
-		<p><a href="../products/"><button type='button' class='btn btn-primary'>Return to Index of Products</button></a></p>
+		<p> <a href="../products/"><button type='button' class='btn btn-primary'>Return to Index of Products</button></a></p>
 		<p> <a href='<%=@product.id %>/edit'><button type='button' class='btn btn-warning'>Edit Product Information</button></a></p>
+		<div class='left'>
+			<h3> Comments regarding <%= @product.name %></h3>
+			<% @product_comments.each do |comment| %>
+				<h3>Comment by <%= comment.author %> </h3>
+				<p><%= comment.content %> </p>
+			<% end %>
+		</div><!--end of div left-->
+		<div class='right'>
+			<%= simple_form_for [@product, @comment], :html => { :class => 'form-horizontal' } do |f| %>
+			  <%= f.input :author, :input_html => { :class => "span4" }, label: "Your Name" %>
+			  <%= f.input :content, :input_html => { :class => "span4" }, label: "Your Comment" %>
+			  <%= f.button :submit, :class => 'btn btn-success', label: "Submit" %>
+			<% end %>
+		</div><!--end of div left-->
 	</body>
 </html>
