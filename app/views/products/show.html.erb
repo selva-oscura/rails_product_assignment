@@ -1,26 +1,27 @@
 <html>
 	<head>
 <% content_for :title do %>
-  Product <%=@product.id %> Details
+  Product <%=@product.name %> Details
 <% end %>
 	</head>
 	<body>
-		<h1> Information for Product <%=@product.id %></h1>
+		<h1> Information regarding <%=@product.name %></h1>
 
-		<p> <b>Name:</b> <%= @product.name %></p>
 		<p> <b>Category: </b> <%= @product.category.name %></p>
 		<p> <b>Description:</b> <%= @product.description %></p>
 		<p> <b>Price:</b> <%= @product.pricing %></p>
-		<p> <a href="../products/"><button type='button' class='btn btn-primary'>Return to Index of Products</button></a></p>
-		<p> <a href='<%=@product.id %>/edit'><button type='button' class='btn btn-warning'>Edit Product Information</button></a></p>
+		<p> <a href="../products/"><button type='button' class='btn btn-primary inline'>Return to Index of Products</button></a></p>
+		<p> <a href='<%=@product.id %>/edit'><button type='button' class='btn btn-warning inline'>Edit Product Information</button></a></p>
+		<div class='clear'></div>
 		<div class='left'>
-			<h3> Comments regarding <%= @product.name %></h3>
+			<h4> Comments regarding <%= @product.name %></h4>
 			<% @product_comments.each do |comment| %>
-				<h3>Comment by <%= comment.author %> </h3>
-				<p><%= comment.content %> </p>
+				<p class=> "<%= comment.content %>"</p>
+				<p class='author'> &nbsp; -- &nbsp; <%= comment.author %> </p>
 			<% end %>
 		</div><!--end of div left-->
 		<div class='right'>
+			<h4>Leave Your Comments Here</h4>
 			<%= simple_form_for [@product, @comment], :html => { :class => 'form-horizontal' } do |f| %>
 			  <%= f.input :author, :input_html => { :class => "span4" }, label: "Your Name" %>
 			  <%= f.input :content, :input_html => { :class => "span4" }, label: "Your Comment" %>

@@ -30,11 +30,30 @@ a:link, a:visited, a:hover, a:focus{
 	height:36px;
 }
 
+.inline{
+	float:left;
+	margin-right:24px;
+}
+
+.clear{
+	clear:both;
+}
 .right{
 	width:50%;
 	float:right;
+	padding: 12px 0px 0px 0px;
 }
+
 .left{
-	width:50%;
+	width:40%;
 	float:left;
+	border-width:5px;
+	border-style:double;
+	margin:12px 0px;
+	padding:12px;
+}
+
+.author{
+	text-transform: capitalize;
+	font-size:12px;
 }
